@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    var username = Context.Session.GetString("name");
+    string admin = Context.Session.GetString("yetki").ToLower() == "admin" ? "block":"none";
+}
+
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href=@Url.Action("Index", "Anasayfa") class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="~/assets/images/logo-sm-dark.png" alt="logo-sm-dark" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="~/assets/images/logo-dark.png" alt="logo-dark" height="20">
+                    </span>
+                </a>
+
+                <a href=@Url.Action("Index", "Anasayfa") class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="~/assets/images/koyu_logo.png" alt="logo-sm-light" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="~/assets/images/new_logo.png" alt="logo-light" height="20">
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-24 d-lg-none header-item" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                <i class="ri-menu-2-line align-middle"></i>
+            </button>
+
+
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block user-dropdown">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @*<img class="rounded-circle header-profile-user" src="~/assets/images/users/avatar-2.jpg"
+                        alt="Header Avatar">*@
+                    <span class="d-none d-xl-inline-block ms-1">@username</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a class="dropdown-item" href=@Url.Action("Index", "ApiEkle")><i class="ri-wallet-2-line align-middle me-1"></i> Binance Api Ekle</a>
+                    <a class="dropdown-item d-block" href=@Url.Action("Index", "Ayarlar")><i class="ri-settings-2-line align-middle me-1"></i> Ayarlar</a>
+
+                    <div style="display:@admin">
+                        <a class="dropdown-item d-block"   href=@Url.Action("Index", "AdminPanel")><i class="ri-user-line align-middle me-1"></i> Admin Panel</a>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href=@Url.Action("Logout", "AuthLogin")><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Çıkış Yap</a>
+                </div>
+            </div>
+
+            @*<div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="ri-settings-2-line"></i>
+                    </button>
+                </div>*@
+
+        </div>
+    </div>
+</header>
+
+@*<div class="topnav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+
+                <div class="collapse navbar-collapse" id="topnav-menu-content">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href=@Url.Action("Index", "Anasayfa")>
+                                <i class="ri-dashboard-line me-2"></i> Anasayfa
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href=@Url.Action("Index", "KoinEkle")>
+                                <i class="ri-play-list-add-line me-2"></i> Koin Alım ve Satım
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href=@Url.Action("Index", "AuthLogin")>
+                                <i class="ri-play-list-add-line me-2"></i> Login Ekranı Test
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=@Url.Action("Index", "AuthLogin")>
+                                <i class="ri-play-list-add-line me-2"></i> Kayıt Ol Ekranı Test
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button">
+                                <i class="ri-apps-2-line me-2"></i>Api Ekle <div class="arrow-down"></div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="topnav-apps">
+
+                                <a href=@Url.Action("Index", "ApiEkle") class="dropdown-item">Binance Api Ekle</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>*@

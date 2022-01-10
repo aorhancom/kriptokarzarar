@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = "~/Views/_Shared/_BlankLayout.cshtml";
+}
+
+<div>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4">
+                <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
+                    <div class="w-100">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div>
+                                    <div class="text-center">
+                                        <div>
+                                            <a href=@Url.Action("Index", "Anasayfa") class="">
+                                                <img src="~/assets/images/koyu_logo.png" alt="" height="20" class="auth-logo logo-dark mx-auto">
+                                                <img src="~/assets/images/new_logo.png" alt="" height="20" class="auth-logo logo-light mx-auto">
+                                            </a>
+                                        </div>
+
+                                        <h4 class="font-size-18 mt-4">Hesap Oluştur</h4>
+                                        <p class="text-muted">Şimdi yeni bir hesap oluşturun.</p>
+                                    </div>
+
+                                    <div class="p-2 mt-5">
+                                        <form class="" action=@Url.Action("Index", "AuthRegister") method="post">
+
+                                            <div class="auth-form-group-custom mb-4">
+                                                <i class="ri-mail-line auti-custom-input-icon"></i>
+                                                <label for="useremail">Email</label>
+                                                <input type="email" class="form-control" name="Email" id="email" placeholder="E-Posta adresi yazınız.">
+                                            </div>
+
+                                            <div class="auth-form-group-custom mb-4">
+                                                <i class="ri-user-2-line auti-custom-input-icon"></i>
+                                                <label for="username">Username</label>
+                                                <input type="text" class="form-control" name="Username" id="username" placeholder="Kullanıcı adı yazınız.">
+                                            </div>
+
+                                            <div class="auth-form-group-custom mb-4">
+                                                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                                                <label for="userpassword">Password</label>
+                                                <input type="password" class="form-control" name="Password" id="password" placeholder="Parola yazınız.">
+                                            </div>
+
+
+                                            <div class="text-center">
+                                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Kayıt Oluştur</button>
+                                            </div>
+
+                                            @*<div class="mt-4 text-center">
+                                                <p class="mb-0">By registering you agree to the Nazox <a href="#" class="text-primary">Terms of Use</a></p>
+                                            </div>*@
+                                        </form>
+                                    </div>
+
+                                    <div class="mt-5 text-center">
+                                        <p>Hesabınız var mı ? <a href=@Url.Action("Index", "AuthLogin") class="fw-medium text-primary"> Giriş</a> </p>
+                                        <p>
+                                            ©
+                                            <script>document.write(new Date().getFullYear())</script> Proje Çalışması. <i class="mdi mdi-heart text-danger"></i> Binance
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="authentication-bg position-relative">
+                    <div class="bg-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
